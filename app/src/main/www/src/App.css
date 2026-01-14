@@ -1,0 +1,10 @@
+/* Main content */
+main {
+  width: 100%;
+}
+
+/* Footer spacing */
+.footer-space {
+  height: 100px;
+  background-color: #ffffff;
+}
