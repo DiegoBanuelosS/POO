@@ -1,22 +1,17 @@
 import { useEffect } from 'react';
 import Header from './components/Header';
-import Hero from './components/Hero';
 import VehicleSection from './components/VehicleSection';
+import AstonMartinSection from './components/AstonMartinSection';
 import { favoritosVehicles, suvVehicles } from './data/vehicles';
 import './App.css';
-
-// Get GSAP from window (loaded via CDN)
 const gsap = window.gsap;
 const ScrollTrigger = window.ScrollTrigger;
 const ScrollSmoother = window.ScrollSmoother;
-
-// Register plugins
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 function App() {
 
   useEffect(() => {
-    // Initialize ScrollSmoother
     const smoother = ScrollSmoother.create({
       wrapper: '#smooth-wrapper',
       content: '#smooth-content',
@@ -24,8 +19,6 @@ function App() {
       effects: true,
       smoothTouch: 0.1,
     });
-
-    // Header scroll effect
     const handleScroll = () => {
       const header = document.querySelector('.header');
       if (window.scrollY > 100) {
@@ -36,18 +29,6 @@ function App() {
     };
 
     window.addEventListener('scroll', handleScroll);
-
-    // Parallax effect on hero
-    gsap.to('.hero', {
-      scrollTrigger: {
-        trigger: '.hero',
-        start: 'top top',
-        end: 'bottom top',
-        scrub: true
-      },
-      backgroundPosition: '50% 100%',
-      ease: 'none'
-    });
 
     return () => {
       smoother.kill();
@@ -65,7 +46,7 @@ function App() {
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <main>
-            <Hero />
+            <AstonMartinSection />
             
             <VehicleSection 
               id="vehiculos" 
@@ -81,7 +62,10 @@ function App() {
               vehicles={suvVehicles}
             />
             
-            <div className="footer-space"></div>
+            <section id="ver-mas" className="ver-mas-section">
+              <h2>¿Quieres ver más?</h2>
+              <a href="#catalogo" className="btn-ver-catalogo">Ver Catálogo</a>
+            </section>
           </main>
         </div>
       </div>
