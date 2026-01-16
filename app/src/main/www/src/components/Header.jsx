@@ -17,7 +17,55 @@ const Header = () => {
       const checkY = headerRect.bottom;
 
       // Secciones donde el logo debe ser negro
-      const darkSections = ['vehiculos', 'catalogo', 'cars', 'ver-mas'];
+      const darkSections = ['vehiculos', 'catalogo', 'cars'];
+      
+      // Detectar si está en la sección sobre-nosotros (logo blanco)
+      const sobreNosotrosSection = document.getElementById('sobre-nosotros');
+      if (sobreNosotrosSection) {
+        const sobreNosotrosRect = sobreNosotrosSection.getBoundingClientRect();
+        if (sobreNosotrosRect.top <= checkY && sobreNosotrosRect.bottom >= 0) {
+          setIsInVideoSection(true);
+          setIsNavbarOpen(false);
+          setIsDarkLogo(false);
+          return;
+        }
+      }
+      
+      // Detectar si está en la sección ver-mas (logo blanco)
+      const verMasSection = document.getElementById('ver-mas');
+      if (verMasSection) {
+        const verMasRect = verMasSection.getBoundingClientRect();
+        if (verMasRect.top <= checkY && verMasRect.bottom >= 0) {
+          setIsInVideoSection(false);
+          setIsNavbarOpen(true);
+          setIsDarkLogo(false);
+          return;
+        }
+      }
+      
+      // Detectar si está en la sección de estadísticas (fondo blanco - logo negro)
+      const estadisticasSection = document.getElementById('estadisticas');
+      if (estadisticasSection) {
+        const estadisticasRect = estadisticasSection.getBoundingClientRect();
+        if (estadisticasRect.top <= checkY && estadisticasRect.bottom >= 0) {
+          setIsInVideoSection(false);
+          setIsNavbarOpen(true);
+          setIsDarkLogo(true);
+          return;
+        }
+      }
+      
+      // Detectar si está en la sección de transporte (fondo blanco inicial - logo negro)
+      const transporteSection = document.querySelector('.transporte-section');
+      if (transporteSection) {
+        const transporteRect = transporteSection.getBoundingClientRect();
+        if (transporteRect.top <= checkY && transporteRect.bottom >= 0) {
+          setIsInVideoSection(false);
+          setIsNavbarOpen(true);
+          setIsDarkLogo(true);
+          return;
+        }
+      }
       
       // Detectar si está en la sección de videos
       const videoSection = document.getElementById('aston-martin');

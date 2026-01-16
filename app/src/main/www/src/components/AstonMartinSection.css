@@ -137,6 +137,15 @@
   text-transform: uppercase;
 }
 
+/* Fuente Rolls Royce - Elegante Clásica */
+.aston-title.font-rolls {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  letter-spacing: 14px;
+  text-transform: uppercase;
+  font-style: normal;
+}
+
 .aston-link {
   color: #ffffff;
   text-decoration: none;

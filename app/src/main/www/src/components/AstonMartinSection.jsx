@@ -3,7 +3,9 @@ import './AstonMartinSection.css';
 import astonLogo from '../assets/aston-martin-svgrepo-com.svg';
 import lamborghiniLogo from '../assets/lamborghini-svgrepo-com.svg';
 import porscheLogo from '../assets/porsche-svgrepo-com.svg';
-import lamborghiniVideo from '../assets/Lamborghini_Temerario_ENDLESS_PROGRESSION_16x9.mp4_(HD_720_-_WEB_(H264_2500)).mp4';
+import lamborghiniVideo from '../data/Assets/about/Lamborghini_Esperienza_Corsa_Zhejiang_International_Circuit_-_Event_Video.mp4_(HD_720_-_WEB_(H264_2500)).mp4';
+import rollsroycelogo from '../assets/rolls-royce-svgrepo-com.svg';
+import rollsroyceVideo from '../assets/PF0009987.mp4';
 
 const gsap = window.gsap;
 const ScrollTrigger = window.ScrollTrigger;
@@ -18,7 +20,7 @@ const vehicles = [
   },
   {
     id: 2,
-    name: 'Lamborghini Temerario',
+    name: 'Lamborghini Revuelto',
     logo: lamborghiniLogo,
     video: lamborghiniVideo,
     fontClass: 'font-lambo'
@@ -29,15 +31,21 @@ const vehicles = [
     logo: porscheLogo,
     video: 'https://videos.porsche.com/id/ef77e2f7-5306-47b1-bd55-f203102ce3d4/taycansnippetdesktop/hls.m3u8',
     fontClass: 'font-porsche'
+  },
+  {
+    id: 4,
+    name: 'Rolls Royce Phantom',
+    logo: rollsroycelogo,
+    video: rollsroyceVideo,
+    fontClass: 'font-rolls'
   }
 ];
 
 const AstonMartinSection = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [isTransitioning, setIsTransitioning] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(true);
   const videoRef = useRef(null);
   const sectionRef = useRef(null);
   const videoContainerRef = useRef(null);
@@ -75,7 +83,6 @@ const AstonMartinSection = () => {
 
     // Mostrar contenido inicialmente (empieza en fullscreen)
     gsap.set(content, { opacity: 1, filter: 'blur(0px)' });
-    setIsFullscreen(true);
 
     const ctx = gsap.context(() => {
       gsap.fromTo(videoContainer, 
@@ -127,7 +134,6 @@ const AstonMartinSection = () => {
     if (currentIndex === 0 || isAnimating) return;
     
     setIsAnimating(true);
-    setIsTransitioning(true);
     const content = contentRef.current;
     const videoContainer = videoContainerRef.current;
     
@@ -161,7 +167,6 @@ const AstonMartinSection = () => {
           delay: 0.5,
           onComplete: () => {
             setIsAnimating(false);
-            setIsTransitioning(false);
           }
         });
       }
@@ -172,7 +177,6 @@ const AstonMartinSection = () => {
     if (currentIndex === vehicles.length - 1 || isAnimating) return;
     
     setIsAnimating(true);
-    setIsTransitioning(true);
     const content = contentRef.current;
     const videoContainer = videoContainerRef.current;
     
@@ -206,7 +210,6 @@ const AstonMartinSection = () => {
           delay: 0.5,
           onComplete: () => {
             setIsAnimating(false);
-            setIsTransitioning(false);
           }
         });
       }
