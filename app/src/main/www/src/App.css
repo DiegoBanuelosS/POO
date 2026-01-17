@@ -383,7 +383,7 @@ body, html {
 .personalizacion-section {
   width: 100%;
   min-height: 200vh;
-  background-color: #ffffff;
+  background-color: #000000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -393,7 +393,17 @@ body, html {
   overflow: hidden;
 }
 
-.personalizacion-videos {
+.personalizacion-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.personalizacion-panels {
   position: absolute;
   top: 0;
   left: 0;
@@ -401,15 +411,16 @@ body, html {
   height: 100%;
   z-index: 1;
   display: flex;
-  gap: 5px;
-  padding: 0 5px;
+  gap: 0;
+  padding: 0;
 }
 
-.personalizacion-video {
-  width: 25%;
+.personalizacion-panel {
+  flex: 1;
   height: 100%;
-  object-fit: cover;
-  opacity: 0;
+  background-color: #000000;
+  transform: scaleX(1);
+  transform-origin: center;
 }
 
 .personalizacion-container {

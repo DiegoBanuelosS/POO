@@ -5,6 +5,8 @@ import AstonMartinSection from './components/AstonMartinSection';
 import { favoritosVehicles, suvVehicles } from './data/vehicles';
 import { bentoImages } from './data/bentoImages';
 import logo from './assets/logo.svg';
+import costumize2 from "./data/Assets/about/PF0009455_264.mp4"
+import customize1 from "./data/Assets/about/Lamborghini_Ad_Personam_(HD_720_-_WEB_(H264_2500)).mp4"
 import luxuryVideo from './data/Assets/about/Lamborghini_Temerario_ENDLESS_PROGRESSION_916.mp4_(HD_720_-_WEB_(H264_2500)).mp4';
 import './App.css';
 const gsap = window.gsap;
@@ -272,15 +274,16 @@ function App() {
         }
       });
 
-      personalizacionVideosRef.current.forEach((video, index) => {
-        if (video) {
-          gsap.set(video, { opacity: 0, scale: 1.1 });
+      // Los paneles se contraen para revelar el video detrás
+      personalizacionVideosRef.current.forEach((panel, index) => {
+        if (panel) {
+          gsap.set(panel, { scaleX: 1 });
           
-          tl.to(video, {
-            opacity: 1,
-            scale: 1,
+          tl.to(panel, {
+            scaleX: 0,
             duration: 0.5,
-          }, index * 0.5);
+            ease: 'power2.inOut',
+          }, index * 0.2);
         }
       });
     }
@@ -437,47 +440,32 @@ function App() {
             </section>
 
             <section className="personalizacion-section" ref={personalizacionRef}>
-              <div className="personalizacion-videos">
-                <video 
-                  className="personalizacion-video"
+              <video 
+                className="personalizacion-video-bg"
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+              >
+                <source src={costumize2} type="video/mp4" />
+              </video>
+              <div className="personalizacion-panels">
+                <div 
+                  className="personalizacion-panel"
                   ref={(el) => { if (el) personalizacionVideosRef.current[0] = el; }}
-                  autoPlay 
-                  loop 
-                  muted 
-                  playsInline
-                >
-                  <source src="https://mediapool.bmwgroup.com/download/edown/tvFootageDownload.mp4?dokNo=PF0009759&actEvent=tvFootageH264" type="video/mp4" />
-                </video>
-                <video 
-                  className="personalizacion-video"
+                />
+                <div 
+                  className="personalizacion-panel"
                   ref={(el) => { if (el) personalizacionVideosRef.current[1] = el; }}
-                  autoPlay 
-                  loop 
-                  muted 
-                  playsInline
-                >
-                  <source src={luxuryVideo} type="video/mp4" />
-                </video>
-                <video 
-                  className="personalizacion-video"
+                />
+                <div 
+                  className="personalizacion-panel"
                   ref={(el) => { if (el) personalizacionVideosRef.current[2] = el; }}
-                  autoPlay 
-                  loop 
-                  muted 
-                  playsInline
-                >
-                  <source src="https://ferrari.scene7.com/is/content/ferrari/6628b794-2db2-4c91-9228-7cc0acc63687" type="video/mp4" />
-                </video>
-                <video 
-                  className="personalizacion-video"
+                />
+                <div 
+                  className="personalizacion-panel"
                   ref={(el) => { if (el) personalizacionVideosRef.current[3] = el; }}
-                  autoPlay 
-                  loop 
-                  muted 
-                  playsInline
-                >
-                  <source src="https://mediapool.bmwgroup.com/download/edown/tvFootageDownload.mp4?dokNo=PF0009759&actEvent=tvFootageH264" type="video/mp4" />
-                </video>
+                />
               </div>
               <div className="personalizacion-container">
                 <h2 className="personalizacion-title">Personalización sin límites</h2>
