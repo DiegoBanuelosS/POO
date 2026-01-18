@@ -1,0 +1,90 @@
+.vehicle-card {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.vehicle-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-image {
+  position: relative;
+  background-color: #d9d9d9;
+  height: 350px;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+  flex-shrink: 0;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.vehicle-card:hover .card-img {
+  transform: scale(1.05);
+}
+
+.vehicle-card:hover .card-image {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card-type {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 500;
+  z-index: 2;
+}
+
+.card-info {
+  padding: 12px 0 0 0;
+}
+
+.card-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  margin: 0 0 8px 0;
+}
+
+.card-price {
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
+  overflow: hidden;
+  transform-origin: center;
+}
+
+.price-text {
+  display: inline-block;
+  perspective: 500px;
+}
+
+.card-price .char {
+  display: inline-block;
+  transform-style: preserve-3d;
+}
+
+
+.card-price:hover {
+  background-color: #333333;
+}
