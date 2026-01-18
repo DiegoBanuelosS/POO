@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
 import logo from '../assets/logo.svg';
 
@@ -140,9 +141,9 @@ const Header = () => {
 
   return (
     <header ref={headerRef} className={`header ${isInVideoSection ? 'video-section' : ''}`}>
-      <a href="#" className={`nav-logo ${isDarkLogo ? 'dark' : ''}`}>
+      <Link to="/" className={`nav-logo ${isDarkLogo ? 'dark' : ''}`}>
         <img src={logo} alt="Logo" className="logo" />
-      </a>
+      </Link>
       
       {/* Línea minimizada */}
       {isInVideoSection && !isNavbarOpen && (
@@ -153,8 +154,8 @@ const Header = () => {
       
       {/* Navbar normal o expandido */}
       <nav className={`navbar ${isInVideoSection ? (isNavbarOpen ? 'expanded' : 'collapsed') : ''}`}>
-        <a href="#vehiculos" className="nav-link">inicio</a>
-        <a href="#catalogo" className="nav-link">catalogo</a>
+        <Link to="/" className="nav-link">inicio</Link>
+        <Link to="/catalogo" className="nav-link">catálogo</Link>
         <a href="#pedido" className="nav-link">pedido personalizado</a>
         <a href="#ver-mas" className="nav-link">sobre nosotros</a>
         

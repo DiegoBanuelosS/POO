@@ -3,7 +3,7 @@ import './VehicleCard.css';
 const gsap = window.gsap;
 const SplitText = window.SplitText;
 
-const VehicleCard = ({ tipo = 'tipo', precio = '$00,000', nombre = 'Nombre del Vehículo', imagen = 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=400&h=300&fit=crop' }) => {
+const VehicleCard = ({ tipo = 'tipo', precio = '$00,000', nombre = 'Nombre del Vehículo', imagen = 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=400&h=300&fit=crop', onClick }) => {
   const buttonRef = useRef(null);
   const textRef = useRef(null);
   const splitRef = useRef(null);
@@ -82,9 +82,15 @@ const VehicleCard = ({ tipo = 'tipo', precio = '$00,000', nombre = 'Nombre del V
   };
 
   return (
-    <div className="vehicle-card">
+    <div className="vehicle-card" onClick={onClick}>
       <div className="card-image">
-        <img src={imagen} alt={nombre} className="card-img" />
+        <img 
+          src={imagen} 
+          alt={nombre} 
+          className="card-img" 
+          loading="lazy"
+          decoding="async"
+        />
         <span className="card-type">{tipo}</span>
       </div>
       <div className="card-info">

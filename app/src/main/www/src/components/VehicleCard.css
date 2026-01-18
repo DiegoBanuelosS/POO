@@ -3,6 +3,7 @@
   flex-direction: column;
   transition: transform 0.4s ease;
   position: relative;
+  cursor: pointer;
 }
 
 .vehicle-card:hover {
@@ -12,7 +13,7 @@
 .card-image {
   position: relative;
   background-color: #d9d9d9;
-  height: 200px;
+  height: 350px;
   border-radius: 8px;
   overflow: hidden;
   transition: box-shadow 0.3s ease;

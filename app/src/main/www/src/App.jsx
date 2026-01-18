@@ -32,9 +32,9 @@ function App() {
     const smoother = ScrollSmoother.create({
       wrapper: '#smooth-wrapper',
       content: '#smooth-content',
-      smooth: 1.5,
-      effects: true,
-      smoothTouch: 0.1,
+      smooth: 1,
+      effects: false,
+      smoothTouch: 0,
     });
     const handleScroll = () => {
       const header = document.querySelector('.header');
@@ -336,23 +336,23 @@ function App() {
                   <img src={bentoImages[3].url} alt="" />
                 </div>
                 <div className="bento-item bento-5" ref={(el) => { if (el) bentoItemsRef.current[4] = el; }}>
-                  <img src={bentoImages[4].url} alt="" />
+                  <img src={bentoImages[4].url} alt="" loading="lazy" />
                 </div>
                 <div className="bento-item bento-6" ref={(el) => { if (el) bentoItemsRef.current[5] = el; }}>
-                  <img src={bentoImages[5].url} alt="" />
+                  <img src={bentoImages[5].url} alt="" loading="lazy" />
                 </div>
                 <div className="bento-item bento-7" ref={(el) => { if (el) bentoItemsRef.current[6] = el; }}>
-                  <img src={bentoImages[6].url} alt="" />
+                  <img src={bentoImages[6].url} alt="" loading="lazy" />
                 </div>
                 <div className="bento-item bento-8" ref={(el) => { if (el) bentoItemsRef.current[7] = el; }}>
-                  <img src={bentoImages[7].url} alt="" />
+                  <img src={bentoImages[7].url} alt="" loading="lazy" />
                 </div>
               </div>
               
               {/* Contenido */}
               <div className="ver-mas-content">
                 <h2>¿Quieres ver más?</h2>
-                <a href="#catalogo" className="btn-ver-catalogo">Ver Catálogo</a>
+                <a href="/catalogo" className="btn-ver-catalogo">Ver Catálogo</a>
               </div>
             </section>
 
@@ -364,17 +364,17 @@ function App() {
             <section id="informacion" className="informacion-section">
               <div className="informacion-container">
                 <div className="informacion-video">
-                  <video autoPlay loop muted playsInline>
+                  <video autoPlay loop muted playsInline preload="auto">
                     <source src="https://mediapool.bmwgroup.com/download/edown/tvFootageDownload.mp4?dokNo=PF0009759&actEvent=tvFootageH264" type="video/mp4" />
                   </video>
                 </div>
                 <div className="informacion-video">
-                  <video autoPlay loop muted playsInline>
+                  <video autoPlay loop muted playsInline preload="auto">
                     <source src={luxuryVideo} type="video/mp4" />
                   </video>
                 </div>
                 <div className="informacion-video">
-                  <video autoPlay loop muted playsInline>
+                  <video autoPlay loop muted playsInline preload="auto">
                     <source src="https://ferrari.scene7.com/is/content/ferrari/6628b794-2db2-4c91-9228-7cc0acc63687" type="video/mp4" />
                   </video>
                 </div>
@@ -446,6 +446,7 @@ function App() {
                 loop 
                 muted 
                 playsInline
+                preload="auto"
               >
                 <source src={costumize2} type="video/mp4" />
               </video>
