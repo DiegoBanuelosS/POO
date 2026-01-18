@@ -1,0 +1,262 @@
+.aston-martin-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.aston-video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transform-origin: center center;
+}
+
+/* Loader */
+.aston-loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.aston-loader.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.aston-loader-logo {
+  width: 150px;
+  height: auto;
+  filter: brightness(0) invert(1);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+/* Video de fondo */
+.aston-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* Overlay oscuro */
+.aston-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  z-index: 2;
+}
+
+/* Contenido */
+.aston-content {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  opacity: 0;
+  filter: blur(20px);
+}
+
+.aston-title {
+  font-size: 3rem;
+  font-weight: 300;
+  color: #ffffff;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  margin: 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.5s ease;
+}
+
+/* Fuente Aston Martin - Elegante Serif */
+.aston-title.font-aston {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  letter-spacing: 12px;
+  font-style: normal;
+}
+
+/* Fuente Lamborghini - Bold Italic Agresivo */
+.aston-title.font-lambo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+/* Fuente Porsche - Limpia Moderna */
+.aston-title.font-porsche {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+}
+
+/* Fuente Rolls Royce - Elegante Clásica */
+.aston-title.font-rolls {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  letter-spacing: 14px;
+  text-transform: uppercase;
+  font-style: normal;
+}
+
+.aston-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  padding-bottom: 4px;
+  transition: all 0.3s ease;
+}
+
+.aston-link:hover {
+  border-bottom-color: #ffffff;
+  letter-spacing: 3px;
+}
+
+/* Flechas del carrusel */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.carousel-arrow svg {
+  width: 24px;
+  height: 24px;
+  color: #ffffff;
+}
+
+.carousel-arrow:hover:not(.disabled) {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-arrow.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.arrow-left {
+  left: 40px;
+}
+
+.arrow-right {
+  right: 40px;
+}
+
+/* Logo de marca en esquina superior derecha */
+.aston-brand-logo {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.aston-brand-logo img {
+  height: 60px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  transition: all 0.4s ease;
+}
+
+@media (max-width: 768px) {
+  .aston-title {
+    font-size: 1.8rem;
+    letter-spacing: 4px;
+  }
+  
+  .aston-loader-logo {
+    width: 100px;
+  }
+  
+  .aston-brand-logo {
+    top: 20px;
+    right: 20px;
+  }
+  
+  .aston-brand-logo img {
+    height: 35px;
+  }
+  
+  .carousel-arrow {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .carousel-arrow svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .arrow-left {
+    left: 15px;
+  }
+  
+  .arrow-right {
+    right: 15px;
+  }
+}
