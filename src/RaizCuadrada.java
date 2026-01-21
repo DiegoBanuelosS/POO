@@ -4,6 +4,13 @@
  * @version 1.0
  */
 public class RaizCuadrada {
+    private Suma suma;
+    private Resta resta;
+    
+    public RaizCuadrada() {
+        this.suma = new Suma();
+        this.resta = new Resta();
+    }
     
     /**
      * Calcula la raiz cuadrada usando el metodo de aproximacion con sumas/restas
@@ -29,11 +36,11 @@ public class RaizCuadrada {
             // Calcular aproximacion * aproximacion usando solo sumas
             double cuadrado = 0;
             for (int i = 0; i < (int)aproximacion; i++) {
-                cuadrado = cuadrado + aproximacion;
+                cuadrado = suma.calcular(cuadrado, aproximacion);
             }
             
             // Ver si estamos cerca del resultado
-            double diferencia = cuadrado - numero;
+            double diferencia = resta.calcular(cuadrado, numero);
             if (diferencia < 0) diferencia = -diferencia;
             
             if (diferencia < precision) {
@@ -42,9 +49,9 @@ public class RaizCuadrada {
             
             // Ajustar la aproximacion
             if (cuadrado > numero) {
-                aproximacion = aproximacion - 0.01;
+                aproximacion = resta.calcular(aproximacion, 0.01);
             } else {
-                aproximacion = aproximacion + 0.01;
+                aproximacion = suma.calcular(aproximacion, 0.01);
             }
         }
         

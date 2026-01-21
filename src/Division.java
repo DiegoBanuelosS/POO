@@ -4,6 +4,13 @@
  * @version 1.0
  */
 public class Division {
+    private Resta resta;
+    private Suma suma;
+    
+    public Division() {
+        this.resta = new Resta();
+        this.suma = new Suma();
+    }
     
     /**
      * Divide dos numeros usando solo restas
@@ -30,8 +37,8 @@ public class Division {
         
         // Restar 'b' de 'a' hasta que no se pueda mas
         while (resto >= b) {
-            resto = resto - b;
-            resultado = resultado + 1;
+            resto = resta.calcular(resto, b);
+            resultado = suma.calcular(resultado, 1);
         }
         
         if (negativo) {

@@ -4,6 +4,11 @@
  * @version 1.0
  */
 public class Modulo {
+    private Resta resta;
+    
+    public Modulo() {
+        this.resta = new Resta();
+    }
     
     /**
      * Calcula el modulo (resto de la division) usando solo restas
@@ -27,7 +32,7 @@ public class Modulo {
         
         // Restar 'b' de 'a' hasta que el resto sea menor que b
         while (resto >= b) {
-            resto = resto - b;
+            resto = resta.calcular(resto, b);
         }
         
         return resto;

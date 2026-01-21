@@ -4,6 +4,11 @@
  * @version 1.0
  */
 public class Potencia {
+    private Suma suma;
+    
+    public Potencia() {
+        this.suma = new Suma();
+    }
     
     /**
      * Calcula la potencia usando multiplicacion (que usa sumas)
@@ -30,7 +35,7 @@ public class Potencia {
             double temp = 0;
             // Multiplicar resultado * base usando sumas
             for (int j = 0; j < (int)base; j++) {
-                temp = temp + resultado;
+                temp = suma.calcular(temp, resultado);
             }
             resultado = temp;
         }

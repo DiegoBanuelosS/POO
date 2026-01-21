@@ -4,6 +4,11 @@
  * @version 1.0
  */
 public class Multiplicacion {
+    private Suma suma;
+    
+    public Multiplicacion() {
+        this.suma = new Suma();
+    }
     
     /**
      * Multiplica dos numeros usando solo sumas
@@ -23,7 +28,7 @@ public class Multiplicacion {
         
         // Sumar 'a' tantas veces como indique 'b'
         for (int i = 0; i < (int)b; i++) {
-            resultado = resultado + a;
+            resultado = suma.calcular(resultado, a);
         }
         
         // Si era negativo, cambiar el signo
