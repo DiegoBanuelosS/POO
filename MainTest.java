@@ -20,7 +20,7 @@ public class MainTest {
     private static void testBasic() {
         List<Integer> input = List.of(3, 4, 5, 7, 6);
         long result = Main.countEvens(input);
-        assert result == 2 : "Test básico falló: esperado 2, obtenido " + result;
+        assert result == 2 : "Test básico fallo: esperado 2, obtenido " + result;
     }
     
     /**

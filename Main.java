@@ -15,6 +15,6 @@ public class Main {
     public static void main(String[] args) {
         List<Integer> numeros = List.of(3, 4, 5, 7, 6);
         long pares = countEvens(numeros);
-        System.out.println("Cantidad de números pares: " + pares);
+        System.out.println("Cantidad de numeros pares: " + pares);
     }
 }
