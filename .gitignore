@@ -59,10 +59,55 @@ buildNumber.properties
 
 # IDE - VS Code
 .vscode/
+*.code-workspace
 
 # OS generated files
 .DS_Store
+.DS_Store?
+._*
 Thumbs.db
+ehthumbs.db
+Desktop.ini
 
 # Test output
 test-output/
+surefire-reports/
+failsafe-reports/
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Backup files
+*.bak
+*.backup
+
+# Coverage reports
+jacoco/
+coverage/
+*.exec
+
+# Documentation generated
+docs/api/
+javadoc/
+
+# Local configuration
+local.properties
+*.local
+
+# Checkstyle
+checkstyle-result.xml
+checkstyle-cachefile
+
+# PMD
+pmd.xml
+
+# SpotBugs
+spotbugsXml.xml
